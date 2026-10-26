@@ -2,6 +2,12 @@
 
 Motor de conciliación entre movimientos bancarios y contables. Compara referencia, importe, moneda y tolerancia de fecha; solo concilia automáticamente relaciones únicas en ambos lados. Los empates quedan pendientes para revisión.
 
+## Diseño y tecnologías
+
+Python 3.10+, Decimal, importes enteros y SQLite. El resumen de resultados puede utilizar Ollama; se incluyen workflow n8n y archivos Docker.
+
+[Diagrama de arquitectura](docs/architecture.md) · [Diagrama del flujo](docs/flow.md) · [Tecnologías y alcance](docs/technologies.md)
+
 ## Ejecutar
 
 Requiere Python 3.10 o posterior. La demo utiliza un lote sintético con un par conciliado y una diferencia de un dólar.

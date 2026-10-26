@@ -1,0 +1,14 @@
+flowchart TD
+    Start["Recibir lote de banco y libro"] --> Validate["Validar importes, monedas y fechas"]
+    Validate --> Existing{"¿Lote ya registrado?"}
+    Existing -->|Sí| Fingerprint{"¿Mismo origen normalizado?"}
+    Fingerprint -->|Sí| Previous["Devolver resultado conservado"]
+    Fingerprint -->|No| Reject["Rechazar conflicto de lote"]
+    Existing -->|No| Match["Comparar referencia, importe, moneda y fecha"]
+    Match --> Unique{"¿Candidato único en ambos lados?"}
+    Unique -->|Sí| Pair["Registrar par conciliado"]
+    Unique -->|No| Exception["Conservar excepción"]
+    Exception --> Review["Revisar con actor y motivo"]
+    Pair --> Metrics["Calcular diferencias y métricas por moneda"]
+    Review --> Metrics
+    Metrics --> Save["Guardar resultado y auditoría"]

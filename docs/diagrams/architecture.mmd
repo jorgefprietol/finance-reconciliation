@@ -1,0 +1,19 @@
+flowchart TB
+    Client["CLI o consola web"] --> API["API con token e idempotencia"]
+    subgraph Local["Servicio local implementado"]
+        API --> Validate["Moneda, fecha e importe decimal"]
+        Validate --> Minor["Unidades mínimas enteras"]
+        Minor --> Graph["Relación de candidatos"]
+        Graph --> Unique["Pares únicos y excepciones"]
+        Unique --> DB["Lote y auditoría en SQLite"]
+        DB --> Review["Revisión manual controlada"]
+        Review --> DB
+        DB --> Summary["Métricas y explicación"]
+    end
+    subgraph Optional["Componentes opcionales por configurar"]
+        N8N["Workflow n8n incluido"]
+        Model["Resumen con Ollama"]
+    end
+    N8N -.-> API
+    Summary -.-> Model
+    External["Banco y ERP por conectar"] -.-> N8N
