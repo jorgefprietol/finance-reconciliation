@@ -1,0 +1,13 @@
+{
+  "action": "reconcile",
+  "batch_id": "DEMO-2026-10",
+  "date_tolerance_days": 2,
+  "bank": [
+    {"id":"B-1","date":"2026-10-24","amount":"143.75","currency":"USD","reference":"PAY-042"},
+    {"id":"B-2","date":"2026-10-25","amount":"80.00","currency":"USD","reference":"PAY-043"}
+  ],
+  "ledger": [
+    {"id":"L-1","date":"2026-10-25","amount":"143.75","currency":"USD","reference":"pay 042"},
+    {"id":"L-2","date":"2026-10-25","amount":"79.00","currency":"USD","reference":"PAY-043"}
+  ]
+}
